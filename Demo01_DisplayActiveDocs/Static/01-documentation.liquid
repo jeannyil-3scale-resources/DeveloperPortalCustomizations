@@ -1,0 +1,22 @@
+<div class="container">
+    <h1><center>All Published APIs Documentations</center></h1>
+    <br/>
+    
+    {% for api_spcs in provider.api_specs %}
+    <div class="col-md-6">
+        <article class="panel panel-default">
+            <div class="panel-heading">
+                <strong>{{ api_spcs.service.name }}</strong>
+            </div>
+            <div class="panel-footer">
+                <div class="row">
+                    <div class="col-md-6">
+                        <a class="btn btn-primary pull-left" href="/publishedDocs/{{ api_spcs.system_name }}"><strong>{{ api_spcs.service.name }}</strong> Documentation</a>                                                        
+                    </div>
+                </div>
+            </div>
+        </article>
+    </div>
+    {% endfor %}
+
+</div>

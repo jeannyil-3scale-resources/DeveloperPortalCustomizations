@@ -1,0 +1,72 @@
+<h1>All Published APIs Documentations</h1>
+
+{% assign specs = 'system_name1,system_name2' %}
+
+{% cdn_asset /swagger-ui/2.2.10/swagger-ui.js %}
+{% cdn_asset /swagger-ui/2.2.10/swagger-ui.css %}
+
+{% include 'shared/swagger_ui' %}
+
+<!-- Main container for rendering Swagger UI specs -->
+<div id="swagger-ui-containers">
+</div>
+
+<script type="text/javascript">
+  
+  function swaggerSectionHtml(domId) {
+    var html = '<div class="swagger-section"><div id="message-bar" class="swagger-ui-wrap">&nbsp;</div><div id="' + domId + '" class="swagger-ui-wrap"></div></div>'
+    return html;
+  }
+  
+  function getSwaggerSpecUrl(specSystemName) {
+    // check parent location, if it's iframe
+    var loc = window.location.href == 'about:srcdoc' ? window.parent.location : window.location;
+    var url = loc.protocol+'//'+loc.hostname+(loc.port ? ':'+loc.port : '');
+    url = url + "/swagger/spec/" + specSystemName + ".json";
+    return url;
+  }
+  
+  function loadSwagger(specSystemName, domId) {
+    
+    // create DOM element
+    $("#swagger-ui-containers").append(swaggerSectionHtml(domId));
+    
+    var swaggerObjName = 'swaggerUi' + specSystemName;
+    var swaggerObj = new SwaggerUi({
+      url: getSwaggerSpecUrl(specSystemName),
+      dom_id: domId,
+      supportedSubmitMethods: ['get', 'post', 'put', 'delete', 'patch'],
+      apisSorter: 'alpha',
+      onComplete: function(swaggerApi, swaggerUi) {
+       $(document.getElementById(swaggerUi.dom_id)).find('pre code').each(function(i, e) {hljs.highlightBlock(e)})
+      },
+      docExpansion: 'list',
+      transport: function (httpClient, obj) { ApiDocsProxy.execute(httpClient, obj) }
+    });
+    window[swaggerObjName] = swaggerObj;
+    window[swaggerObjName].load();
+  }
+
+  function loadMultipleSpecs(){
+
+    // Remove the default swagger-section created in the 'shared/swagger_ui' partial
+    $("#swagger-ui-container").parent().remove();
+    
+    var specsStr = '{{ specs }}';
+    var specs = specsStr.split(',');
+    specs = specs.filter(Boolean); // remove empty elements
+    
+    for (var i=0; i < specs.length; i++) {
+      var specSystemName = $.trim(specs[i]);
+      if (specSystemName != '') {
+        var domId = "swagger-ui-container-" + specSystemName;
+        loadSwagger(specSystemName, domId);
+      }
+    }
+  }
+
+  $(function () {  
+     loadMultipleSpecs();
+  });
+  
+</script>
