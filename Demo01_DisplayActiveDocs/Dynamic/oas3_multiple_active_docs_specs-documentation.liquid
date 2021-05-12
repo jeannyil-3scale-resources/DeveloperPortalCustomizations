@@ -1,0 +1,33 @@
+{% content_for javascripts %}
+    {{ 'active_docs.js' | javascript_include_tag }}
+{% endcontent_for %}
+
+{% assign spec = provider.api_specs.last %}
+
+<h1>All Published APIs Documentations</h1>
+
+<!-- Main container for rendering Swagger UI specs -->
+<div id="swagger-ui-containers">
+</div>
+
+<script type="text/javascript">
+  function swaggerSectionHtml(domId) {
+   	var html = '<div class="swagger-section"><div id="message-bar" class="swagger-ui-wrap">&nbsp;</div><div id="' + domId + '" class="swagger-ui-wrap"><p>Hello</p></div></div>'
+   	return html;
+  }
+  function loadSwagger(specSystemName, url, serviceEndpoint) {    
+    // create DOM element
+    $("#swagger-ui-containers").append(swaggerSectionHtml("swagger-ui-container-" + specSystemName));
+    SwaggerUI({ url: url, dom_id: "#swagger-ui-container-" + specSystemName }, serviceEndpoint);
+  }
+  
+  function loadMultipleSpecs(){    
+    {% for api_spcs in provider.api_specs %}
+     	loadSwagger("{{api_spcs.system_name}}", "{{api_spcs.url}}", "{{api_spcs.api_product_production_public_base_url}}")
+    {% endfor %}
+  }
+  
+  $(function () {  
+     loadMultipleSpecs();
+  });
+</script>
