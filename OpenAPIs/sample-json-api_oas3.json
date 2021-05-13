@@ -14,7 +14,7 @@
     },
     "servers": [
         {
-            "url": "http://camel-quarkus-jsonvalidation-api-camel-quarkus-native.apps.cluster-ce1b.sandbox753.opentlc.com",
+            "url": "http://camel-quarkus-jsonvalidation-api-camel-quarkus-native.apps.jeannyil.sandbox753.opentlc.com",
             "description": "API Backend URL"
         }
     ],
@@ -248,15 +248,15 @@
             "oauth2": {
                 "flows": {
                     "clientCredentials": {
-                        "tokenUrl": "https://sso.apps.cluster-ce1b.sandbox753.opentlc.com/auth/realms/RH3scaleAdminPortal/protocol/openid-connect/token",
+                        "tokenUrl": "https://sso.apps.jeannyil.sandbox753.opentlc.com/auth/realms/RH3scaleAdminPortal/protocol/openid-connect/token",
                         "scopes": {
                             "openid": "OpenID Connect Protocol"
                         }
                     },
                     "authorizationCode": {
-                        "authorizationUrl": "https://sso.apps.cluster-ce1b.sandbox753.opentlc.com/auth/realms/RH3scaleAdminPortal/protocol/openid-connect/auth",
-                        "tokenUrl": "https://sso.apps.cluster-ce1b.sandbox753.opentlc.com/auth/realms/RH3scaleAdminPortal/protocol/openid-connect/token",
-                        "refreshUrl": "https://sso.apps.cluster-ce1b.sandbox753.opentlc.com/auth/realms/RH3scaleAdminPortal/protocol/openid-connect/token",
+                        "authorizationUrl": "https://sso.apps.jeannyil.sandbox753.opentlc.com/auth/realms/RH3scaleAdminPortal/protocol/openid-connect/auth",
+                        "tokenUrl": "https://sso.apps.jeannyil.sandbox753.opentlc.com/auth/realms/RH3scaleAdminPortal/protocol/openid-connect/token",
+                        "refreshUrl": "https://sso.apps.jeannyil.sandbox753.opentlc.com/auth/realms/RH3scaleAdminPortal/protocol/openid-connect/token",
                         "scopes": {
                             "openid": "OpenID Connect protocol"
                         }
