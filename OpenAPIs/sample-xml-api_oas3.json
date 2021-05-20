@@ -14,7 +14,7 @@
     },
     "servers": [
         {
-            "url": "https://xml-validation-api.apps.jeannyil.sandbox753.opentlc.com",
+            "url": "https://xml-validation-api.apps.jeannyil.sandbox438.opentlc.com",
             "description": "API Backend URL"
         }
     ],
