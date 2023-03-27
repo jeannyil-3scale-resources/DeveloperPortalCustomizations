@@ -28,11 +28,21 @@
 
     {{ content_of.javascripts | html_safe }}
   </head>
-  
+
   <!-- Change image -->
   <style>
     .page-header {
-        background-image: url(/images/notes.jpg);
+      background-image: url('/images/notes.jpg');
+    }
+  </style>
+  <style>
+    body {
+      background-color: #7F8F00; /* fallback */
+      background-color: rgba(131, 146, 16, 0.98);
+    }
+
+    .page-header {
+      background-image: url('/images/plant.jpg');
     }
   </style>
 
@@ -42,35 +52,46 @@
       <nav class="navbar navbar-fixed-top navbar-inverse" role="navigation">
         <div class="container tabbed">
           <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-1">
+            <button
+              type="button"
+              class="navbar-toggle collapsed"
+              data-toggle="collapse"
+              data-target="#navbar-1">
               <span class="sr-only">Toggle navigation</span>
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/">{{  provider.name }}</a>
+            <!-- <a class="navbar-brand" href="/">{{ provider.name }}</a> -->
+            <a class="navbar-brand" href="/">
+              <img src="{{ provider.logo_url }}" height="32px" />
+              {{ provider.name }}
+            </a>
           </div>
-          {% include 'submenu'%}
+          {% include 'submenu' %}
         </div>
       </nav>
 
       {% comment %}
-        WARNING: Please note that if you remove the block below
-        you developer portal will stop displaying errors and
-        information messages such as 'Invalid password' on
-        login form or similar.
+      WARNING: Please note that if you remove the block below
+      you developer portal will stop displaying errors and
+      information messages such as 'Invalid password' on
+      login form or similar.
       {% endcomment %}
 
-        <div id="flash-messages">
-          {% for message in flash.messages %}
-            <div class="navbar navbar-fixed-top navbar-default alert alert-{{ message.type }}" data-dismiss="alert">
-              <div class="container">
-                  <button type="button" class="close"  aria-hidden="true">&times;</button>
-                  {{ message.text }}
-              </div>
+      <div id="flash-messages">
+        {% for message in flash.messages %}
+          <div class="navbar navbar-fixed-top navbar-default alert alert-{{ message.type }}" data-dismiss="alert">
+            <div class="container">
+              <button
+                type="button"
+                class="close"
+                aria-hidden="true">&times;</button>
+              {{ message.text }}
             </div>
-          {% endfor %}
-        </div>
+          </div>
+        {% endfor %}
+      </div>
     </header>
 
     <main id="main-content" role="main">
@@ -89,7 +110,9 @@
       <div class="container">
         <ul class="list-inline pull-right">
           <li>&copy; {{ today.year }} {{ provider.name }},</li>
-          <li><a class="powered-by" href="http://3scale.net/">Powered by 3scale</a></li>
+          <li>
+            <a class="powered-by" href="http://3scale.net/">Powered by 3scale</a>
+          </li>
         </ul>
       </div>
     </footer>
