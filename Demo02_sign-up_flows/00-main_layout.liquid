@@ -22,19 +22,19 @@
     {{ '/javascripts/vendor/colorbox/jquery.colorbox-patched.js' | javascript_include_tag }}
     {{ '/javascripts/3scale_v2.js' | javascript_include_tag }}
     {{ '/javascripts/excanvas.compiled.js' | javascript_include_tag }}
+    {% if provider.payment_gateway_type ==: stripe %}
+      {{ 'load_stripe.js' | javascript_include_tag }}
+    {% endif %}
 
     {{ content_of.stylesheets | html_safe }}
     {{ '/css/default.css' | stylesheet_link_tag }}
+    {{ '/css/doc.css' | stylesheet_link_tag }}
 
     {{ content_of.javascripts | html_safe }}
   </head>
 
-  <!-- Change image 
+  <!-- Change image -->
   <style>
-  .page-header {
-  background-image: url('/images/notes.jpg');
-  }
-  </style> --><style>
     body {
       background-color: #7F8F00; /* fallback */
       background-color: rgba(131, 146, 16, 0.98);
@@ -46,7 +46,6 @@
   </style>
 
   <body>
-
     <header role="banner">
       <nav class="navbar navbar-fixed-top navbar-inverse" role="navigation">
         <div class="container tabbed">
