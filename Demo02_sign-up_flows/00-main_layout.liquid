@@ -41,7 +41,7 @@
     }
 
     .page-header {
-      background-image: url('/images/notes.jpg');
+      background-image: url('/images/plant.jpg');
     }
   </style>
 
@@ -62,13 +62,14 @@
             </button>
             <!-- <a class="navbar-brand" href="/">{{ provider.name }}</a> -->
             <a class="navbar-brand" href="/">
-              <!-- <img src="{{ provider.logo_url }}" height="32px" /> -->
-              <img src="/images/safaricom_logo.png" height="32px" />
-              {{ provider.name }}
-            </a>
+              <img src="{{ provider.logo_url }}" height="32px" /> <!-- As long as the logo upload is not working -->
+              <!-- <img src="/images/safaricom_logo.png" height="32px" /> 
+              <img src="/images/logo.png" height="32px" /> -->
+            {{ provider.name }}
+          </a>
           </div>
-          {% include 'submenu' %}
-        </div>
+        {% include 'submenu' %}
+      </div>
       </nav>
 
       {% comment %}
@@ -78,8 +79,7 @@
       login form or similar.
       {% endcomment %}
 
-      <div id="flash-messages">
-        {% for message in flash.messages %}
+        <div id="flash-messages"> {% for message in flash.messages %}
           <div class="navbar navbar-fixed-top navbar-default alert alert-{{ message.type }}" data-dismiss="alert">
             <div class="container">
               <button
