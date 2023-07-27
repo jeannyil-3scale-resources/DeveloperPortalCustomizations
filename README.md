@@ -9,9 +9,9 @@ In the 3scale CMS:
 4. Create a `partial` called `multiple_app_signup_form` with [03-multiple_app_signup_form-partial.liquid](./Demo02_sign-up_flows/03-multiple_app_signup_form-partial.liquid)
 5. Edit the `documentation` page with the [06-documentation.html](./06-documentation.html) content
 5. Upload the following artifacts by preserving the `Root` structure:
-    - Create a `/css/doc.css` CSS page with the [Root/css/doc.css](./Demo02_sign-up_flows/Root/css/doc.css) content. :warning: Make sure the `Content Type : text/css`
-    - Create a `javascript/doc.js` Javascript page with the [Root/javascripts/doc.js](./Demo02_sign-up_flows/Root/javascripts/doc.js) content. :warning: Make sure the `Content Type : text/javascript`
-    - Upload all the images under the [Root/images](./Demo02_sign-up_flows/Root/images) folder in the `images` section. :warning: Make sure the `Path : /images/<name of the file>`
+    - Create a `/css/doc.css` CSS page with the [Root/css/doc.css](./Demo02_sign-up_flows/Root/css/doc.css) content. :warning: Make sure the `Content Type = text/css`
+    - Create a `javascript/doc.js` Javascript page with the [Root/javascripts/doc.js](./Demo02_sign-up_flows/Root/javascripts/doc.js) content. :warning: Make sure the `Content Type = text/javascript`
+    - Upload all the images under the [Root/images](./Demo02_sign-up_flows/Root/images) folder in the `images` section. :warning: Make sure the `Path = /images/<name of the file>`
 
 You should expect to have a customized Developer Portal similar to the screenshot below.
 
