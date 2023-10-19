@@ -3,7 +3,7 @@
 The [Demo02_sign-up_flows](./Demo02_sign-up_flows) folder is used for customizing the 3scale Developer Portal.
 
 In the 3scale CMS:
-1. Edit the `main layout`_` with [00-main_layout.liquid](./Demo02_sign-up_flows/00-main_layout.liquid) content
+1. Edit the `main layout` with [00-main_layout.liquid](./Demo02_sign-up_flows/00-main_layout.liquid) content
 2. Edit the `homepage` with [01-homepage.liquid](./Demo02_sign-up_flows/01-homepage.liquid) content
 3. Create a `partial` called `single_app_signup_form` with [02-single_app_signup_form-partial.liquid](./Demo02_sign-up_flows/02-single_app_signup_form-partial.liquid)
 4. Create a `partial` called `multiple_app_signup_form` with [03-multiple_app_signup_form-partial.liquid](./Demo02_sign-up_flows/03-multiple_app_signup_form-partial.liquid)
